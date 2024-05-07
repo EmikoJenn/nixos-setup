@@ -24,7 +24,7 @@
     };
   in
   {
-    nixosConfigurations.my-nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.emikojenn = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {inherit inputs;};
       modules = [
