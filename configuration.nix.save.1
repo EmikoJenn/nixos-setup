@@ -17,6 +17,7 @@
   environment = {
     sessionVariables.XDG_CURRENT_DESKTOP = "sway";
     systemPackages = with pkgs; [
+      discord
       vscode
       git
       wget
@@ -76,6 +77,7 @@
   security.rtkit.enable = true;
 
   services = {
+
     pipewire = {
       enable = true;
       alsa = {
@@ -85,13 +87,14 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    displayManager.sddm.enable = true;
     xserver = {
       enable = true;
       videoDrivers = [ "amdgpu" ];
+      displayManager.sddm.enable = true;
     };
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
+
   };
 
   fonts.packages = with pkgs; [
@@ -127,17 +130,6 @@
       dedicatedServer.openFirewall = true;
     };
     fish.enable = true;
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      #plugins = with pkgs.vimUtils.buildVimPlugin; [
-        #nvim-tree-lua
-        #nvim-treesitter
-        #elixir-tools-nvim
-        #nvchad-ui
-        #catppuccin-nvim
-      #];
-    };
   };
 
   # Enable CUPS to print documents.
@@ -160,7 +152,6 @@
         tmux
         pavucontrol
         vesktop
-        thunderbird
      ];
     };
   };
@@ -198,6 +189,7 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
+  system.copySystemConfiguration = true; 
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixO>
