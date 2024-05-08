@@ -3,11 +3,10 @@
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-    stateVersion = osConfig.System.stateVersion;
+    stateVersion = "23.11";
   };
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    inputs.anyrun.homeManagerModules.default
     ./programs
   ];
 }

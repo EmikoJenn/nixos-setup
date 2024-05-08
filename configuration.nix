@@ -26,6 +26,10 @@
     ];
   };
 
+  home-manager.users.emikojenn = {
+    home.stateVersion = "23.11";
+  };
+
   # Containers
   virtualisation = {
     containers.enable = true;

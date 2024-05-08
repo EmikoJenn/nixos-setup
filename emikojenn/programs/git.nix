@@ -2,10 +2,10 @@
   enable = true;
   userName = "EmikoJenn";
   userEmail = "TabrisSoreth@gmail.com";
-  signing = {
-    key = "";
-    signByDefault = true;
-  };
+  #signing = {
+    #key = "";
+    #signByDefault = true;
+  #};
   extraConfig = {
     #pull.rebase = true;
     init.defaultBranch = "main";
@@ -17,8 +17,8 @@
       #cmd = ''
         #nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
       #'';
-      trustExitCode = true;
-    };
+      #trustExitCode = true;
+    #};
     #mergetool.prompt = false;
   };
 }
