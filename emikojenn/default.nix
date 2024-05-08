@@ -1,8 +1,8 @@
-{ username, osConfig, inputs, ... }:
+{ inputs, ... }:
 {
   home = {
-    inherit username;
-    homeDirectory = "/home/${username}";
+    username = "emikojenn";
+    homeDirectory = "/home/emikojenn";
     stateVersion = "23.11";
   };
   imports = [
