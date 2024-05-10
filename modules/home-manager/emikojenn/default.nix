@@ -8,6 +8,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./programs
+    ./packages
     #./containers
     #./theme/gtk.nix
   ];
