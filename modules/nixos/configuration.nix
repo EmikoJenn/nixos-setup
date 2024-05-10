@@ -13,6 +13,13 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
+  hardware.opengl = {
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = [ pkgs.amdvlk ];
+    extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
+  };
+
   # ENV
   environment = {
     sessionVariables.XDG_CURRENT_DESKTOP = "sway";
@@ -30,32 +37,7 @@
     home.stateVersion = "23.11";
   };
 
-  # Containers
-  virtualisation = {
-    containers.enable = true;
-    docker = {
-      enable = true;
-      storageDriver = "btrfs";
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
-    podman = {
-      enable = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-run"
-    "steam-original"
-    "vscode"
-  ];
+  nixpkgs.config.allowUnfree = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
