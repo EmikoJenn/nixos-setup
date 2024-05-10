@@ -22,20 +22,23 @@
       inherit system;
       config.allowUnfree = true;
     };
+
   in
   {
     nixosConfigurations.emikojenn = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {inherit inputs;};
       modules = [
-        ./configuration.nix
+        ./modules/nixos/hardware-configuration.nix
+        ./modules/nixos/mountpoints.nix
+	./modules/nixos/configuration.nix
         
 	home-manager.nixosModules.home-manager
         {
           home-manager = {
 	    useGlobalPkgs = true;
             useUserPackages = true;
-	    users.emikojenn = import ./emikojenn;
+	    users.emikojenn = import ./modules/home-manager/emikojenn;
 	    extraSpecialArgs = { inherit inputs; };
 	  };
         }
