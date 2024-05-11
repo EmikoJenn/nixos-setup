@@ -16,14 +16,15 @@
   hardware.opengl = {
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = [ pkgs.amdvlk ];
-    extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
+    extraPackages =  with pkgs; [ amdvlk mangohud ];
+    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk mangohud ];
   };
 
   # ENV
   environment = {
     sessionVariables.XDG_CURRENT_DESKTOP = "sway";
     systemPackages = with pkgs; [
+      steam-run
       vscode
       git
       wget
@@ -37,7 +38,27 @@
     home.stateVersion = "23.11";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      steam = pkgs.steam.override {
+        extraPkgs = pkgs: with pkgs; [
+          gamescope
+          mangohud
+	  xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXScrnSaver
+          libpng
+          libpulseaudio
+          libvorbis
+          stdenv.cc.cc.lib
+          libkrb5
+          keyutils
+        ];
+      };
+    };
+    allowUnfree = true;
+  };
 
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -154,10 +175,10 @@
   xdg = {
     portal = {
       enable = true;
+      wlr.enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
       ];
     };
   };
