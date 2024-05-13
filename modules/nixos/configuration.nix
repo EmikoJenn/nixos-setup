@@ -29,8 +29,8 @@
       git
       wget
       dive
-      podman-tui
-      docker-compose
+      vlc
+      libvlc
     ];
   };
 
