@@ -24,6 +24,7 @@
   environment = {
     sessionVariables.XDG_CURRENT_DESKTOP = "sway";
     systemPackages = with pkgs; [
+      sway-contrib.grimshot
       steam-run
       vscode
       git
