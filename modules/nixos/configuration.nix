@@ -25,8 +25,8 @@
     sessionVariables.XDG_CURRENT_DESKTOP = "sway";
     systemPackages = with pkgs; [
       sway-contrib.grimshot
-      steam-run
       vscode
+      mangohud
       git
       wget
       dive
@@ -132,6 +132,7 @@
   security.polkit.enable = true;
 
   programs = {
+    gamemode.enable = true;
     xfconf.enable = true;
     hyprland = {
       enable = true;
@@ -140,6 +141,7 @@
     thunar.enable = true;
     steam = {
       enable = true;
+      gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
