@@ -38,6 +38,8 @@
       sway-contrib.grimshot
       vscode
       mangohud
+      ffmpeg_5-full
+      krita
       git
       wget
       dive
@@ -108,6 +110,7 @@
     xserver = {
       enable = true;
       videoDrivers = [ "amdgpu" ];
+      desktopManager.xfce.enable = true;
     };
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
@@ -134,7 +137,13 @@
       enable = true;
       xwayland.enable = true;
     };
-    thunar.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+	thunar-volman
+      ];
+    };
     steam = {
       enable = true;
       gamescopeSession.enable = true;
