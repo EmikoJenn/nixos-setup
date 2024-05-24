@@ -25,6 +25,10 @@
 
   virtualisation = {
     containers.enable = true;
+    docker = {
+      enable = true;
+      storageDriver = "btrfs";
+    };
     podman = {
       enable = true;
       defaultNetwork.settings.dns_enable = true;
@@ -109,7 +113,7 @@
     displayManager.sddm.enable = true;
     xserver = {
       enable = true;
-      videoDrivers = [ "amdgpu" ];
+      videoDrivers = [ "amdgpu" "nvidia" ];
       desktopManager.xfce.enable = true;
     };
     gvfs.enable = true; # Mount, trash, and other functionalities
@@ -165,10 +169,10 @@
   };
 
   users = {
-    extraGroups.docker.members = [ "username-with-access-to-socket" ];
+    extraGroups.docker.members = [ "emikojenn" ];
     users.emikojenn = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" "storage" "docker" ]; # Enable ‘sudo’ f>
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" "storage" "docker" ];
       packages = with pkgs; [
         neovim
         firefox
