@@ -82,6 +82,7 @@
         extraPkgs = pkgs: with pkgs; [
           gamescope
           mangohud
+	  gnome2.pango
         ];
       };
     };
