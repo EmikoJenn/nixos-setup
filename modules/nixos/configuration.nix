@@ -102,6 +102,7 @@
   security.rtkit.enable = true;
 
   services = {
+    flatpak.enable = true;
     pipewire = {
       enable = true;
       alsa = {
