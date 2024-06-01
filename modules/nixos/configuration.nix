@@ -16,7 +16,12 @@
   hardware.opengl = {
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages =  with pkgs; [ amdvlk mangohud ];
+    extraPackages =  with pkgs; [ 
+      amdvlk
+      mangohud
+      mesa.drivers
+      rocmPackages.clr.icd
+    ];
     extraPackages32 = with pkgs; [ 
       driversi686Linux.amdvlk
       mangohud 
@@ -37,8 +42,20 @@
 
   # ENV
   environment = {
-    sessionVariables.XDG_CURRENT_DESKTOP = "sway";
+    sessionVariables = {
+      XDG_CURRENT_DESKTOP = "sway";
+      LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
+    };
+    variables = {
+      LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
+    };
     systemPackages = with pkgs; [
+      xorg.xf86videoamdgpu
+      vulkan-loader
+      vulkan-tools
+      opencl-info
+      radeontop
+      ocl-icd
       sway-contrib.grimshot
       vscode
       mangohud
@@ -55,8 +72,6 @@
       unzip
       gnumake
       fd
-      vulkan-tools
-      vulkan-loader
       glfw
       glm
       xorg.libXi
@@ -115,9 +130,15 @@
     displayManager.sddm.enable = true;
     xserver = {
       enable = true;
-      videoDrivers = [ "amdgpu" "nvidia" ];
+      xkb = {
+        layout = "us";
+	variant = "altgr-intl";
+	options = "terminate:ctrl_alt_bksp";
+      };
+      videoDrivers = [ "amdgpu" "nvidia" "modesetting" ];
       desktopManager.xfce.enable = true;
     };
+    libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
   };
@@ -193,11 +214,15 @@
       enable = true;
       wlr.enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
+        xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk
       ];
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+  ];
 
   system = {
     stateVersion = "23.11";
