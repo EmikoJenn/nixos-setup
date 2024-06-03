@@ -28,6 +28,8 @@
     ];
   };
 
+  hardware.pulseaudio.enable = false;
+
   virtualisation = {
     containers.enable = true;
     docker = {
@@ -124,7 +126,6 @@
         enable = true;
         support32Bit = true;
       };
-      pulse.enable = true;
       wireplumber.enable = true;
     };
     displayManager.sddm.enable = true;
@@ -136,7 +137,10 @@
 	options = "terminate:ctrl_alt_bksp";
       };
       videoDrivers = [ "amdgpu" "nvidia" "modesetting" ];
-      desktopManager.xfce.enable = true;
+      desktopManager = {
+        xfce.enable = true;
+	gnome.enable = true;
+      };
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
@@ -214,8 +218,7 @@
       enable = true;
       wlr.enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
-        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
       ];
     };
   };
