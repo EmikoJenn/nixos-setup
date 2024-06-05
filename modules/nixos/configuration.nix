@@ -86,6 +86,7 @@
       raylib
       gcc
       gdb
+      nodejs
     ];
   };
 
