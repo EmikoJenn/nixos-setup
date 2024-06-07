@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   #imports = [
-  #  ./steam.nix
+    #./steam.nix
   #];
 
   programs = {

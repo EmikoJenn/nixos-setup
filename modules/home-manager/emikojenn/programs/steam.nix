@@ -11,16 +11,16 @@
       ];
     };
   };
-  environment.systemPackages = with pkgs; [
+  #environment.systemPackages = with pkgs; [
     # Steam 
-    mangohud
-    gamemode
+    #mangohud
+    #gamemode
 
     # WINE 
-    wine
-    winetricks
-    protontricks
-    vulkan-tools
+    #wine
+    #winetricks
+    #protontricks
+    #vulkan-tools
 
     # Lutris
     #lutris-unwrapped  # (not needed)
@@ -28,13 +28,13 @@
 
     # Extra dependencies
     # https://github.com/lutris/docs/
-    gnutls
-    openldap
-    libgpgerror
-    freetype
-    sqlite
-    libxml2
-    xml2
-    SDL2
-  ];
+    #gnutls
+    #openldap
+    #libgpgerror
+    #freetype
+    #sqlite
+    #libxml2
+    #xml2
+    #SDL2
+  #];
 }

@@ -100,7 +100,6 @@
         extraPkgs = pkgs: with pkgs; [
           gamescope
           mangohud
-	  gnome2.pango
         ];
       };
     };
@@ -127,6 +126,7 @@
         enable = true;
         support32Bit = true;
       };
+      pulse.enable = true;
       wireplumber.enable = true;
     };
     displayManager.sddm.enable = true;
@@ -140,7 +140,6 @@
       videoDrivers = [ "amdgpu" "nvidia" "modesetting" ];
       desktopManager = {
         xfce.enable = true;
-	gnome.enable = true;
       };
     };
     libinput.enable = true;
@@ -178,7 +177,6 @@
     };
     steam = {
       enable = true;
-      gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
@@ -219,7 +217,8 @@
       enable = true;
       wlr.enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-gnome
+        xdg-desktop-portal-wlr
+	xdg-desktop-portal-hyprland
       ];
     };
   };
