@@ -34,6 +34,14 @@
 	"x-gvfs-show"
       ];
     };
+    "/run/media/emikojenn/SSD" = {
+      device = "/dev/disk/by-uuid/DE989A199899F06F";
+      fsType = "ntfs";
+      options = [
+        "users"
+	"nofail"
+	"x-gvfs-show"
+      ];
+    };
   };
 }
-
