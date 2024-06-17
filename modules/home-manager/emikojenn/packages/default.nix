@@ -8,6 +8,7 @@
     obs-studio
     prismlauncher
     thunderbird
+    gparted
     #(zathura.override { useMupfd = true; })
   ];
 

@@ -140,6 +140,7 @@
       videoDrivers = [ "amdgpu" "nvidia" "modesetting" ];
       desktopManager = {
         xfce.enable = true;
+	plasma5.enable = true;
       };
     };
     libinput.enable = true;
