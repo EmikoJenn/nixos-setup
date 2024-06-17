@@ -17,6 +17,23 @@
 	#"x-gvfs-show"
       #];
     #};
+    "/run/media/emikojenn/Linux" = {
+      device = "/dev/disk/by-uuid/f1e2ec61-ea58-40a7-8ea8-13790927d7f7";
+      fsType = "btrfs";
+      options = [
+        "nofail"
+	"x-gvfs-show"
+      ];
+    };
+    "/run/media/emikojenn/Windows" = {
+      device = "/dev/disk/by-uuid/04AE23884941B832";
+      fsType = "ntfs";
+      options = [
+        "users"
+	"nofail"
+	"x-gvfs-show"
+      ];
+    };
   };
 }
 
