@@ -2,9 +2,12 @@
   imports = [
     ./hardware-configuration.nix
     ./mountpoints.nix
+    ./hyprland
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+ 
+  nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
   boot = {
@@ -60,7 +63,6 @@
       ocl-icd
       sway-contrib.grimshot
       vscode
-      mangohud
       ffmpeg_5-full
       krita
       git
@@ -87,23 +89,14 @@
       gcc
       gdb
       nodejs
+      steam-run
+      gamescope
+      gamemode
     ];
   };
 
   home-manager.users.emikojenn = {
     home.stateVersion = "23.11";
-  };
-
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      steam = pkgs.steam.override {
-        extraPkgs = pkgs: with pkgs; [
-          gamescope
-          mangohud
-        ];
-      };
-    };
-    allowUnfree = true;
   };
 
   time.timeZone = "America/Chihuahua";
@@ -140,7 +133,6 @@
       videoDrivers = [ "amdgpu" "nvidia" "modesetting" ];
       desktopManager = {
         xfce.enable = true;
-	plasma5.enable = true;
       };
     };
     libinput.enable = true;
@@ -165,10 +157,6 @@
   programs = {
     gamemode.enable = true;
     xfconf.enable = true;
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
@@ -181,6 +169,7 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
+    appimage.enable = true;
     fish.enable = true;
     neovim = {
       enable = true;
@@ -207,20 +196,8 @@
         kitty
         tmux
         pavucontrol
-        vesktop
         thunderbird
      ];
-    };
-  };
-
-  xdg = {
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-	xdg-desktop-portal-hyprland
-      ];
     };
   };
 
