@@ -1,10 +1,10 @@
 {
-  description = "A very basic flake";
+  description = "Main Flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs"; 
@@ -22,26 +22,32 @@
       inherit system;
       config.allowUnfree = true;
     };
-
+    newSystem = nixpkgs.lib.nixosSystem;
+    newHome = home-manager.lib.homeManagerConfiguration;
   in
   {
-    nixosConfigurations.emikojenn = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.emikojenn_system = newSystem {
       inherit system;
       specialArgs = {inherit inputs;};
       modules = [
-        ./modules/nixos/hardware-configuration.nix
-        ./modules/nixos/mountpoints.nix
 	./modules/nixos/configuration.nix
         
-	home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-	    useGlobalPkgs = true;
-            useUserPackages = true;
-	    users.emikojenn = import ./modules/home-manager/emikojenn;
-	    extraSpecialArgs = { inherit inputs; };
-	  };
-        }
+	#home-manager.nixosModules.home-manager
+        #{
+          #home-manager = {
+	    #useGlobalPkgs = true;
+            #useUserPackages = true;
+	    #users.emikojenn = import ./modules/home-manager/emikojenn;
+	    #extraSpecialArgs = { inherit inputs; };
+	  #};
+        #}
+      ];
+    };
+
+    homeConfigurations.emikojenn_home = newHome {
+      inherit pkgs;
+      modules = [
+        ./modules/home-manager/emikojenn
       ];
     };
   };

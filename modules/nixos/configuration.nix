@@ -1,11 +1,15 @@
-{ config, lib, pkgs, ... }: {
+{ inputs, config, lib, pkgs, ... }: {
+
   imports = [
-    ./hardware-configuration.nix
     ./mountpoints.nix
-    ./hyprland
+    ./hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
  
   nixpkgs.config.allowUnfree = true;
 
@@ -30,6 +34,7 @@
     ];
   };
 
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
 
   virtualisation = {
@@ -57,7 +62,7 @@
       xorg.xf86videoamdgpu
       vulkan-loader
       vulkan-tools
-      opencl-info
+      clinfo
       radeontop
       ocl-icd
       sway-contrib.grimshot
@@ -91,6 +96,11 @@
       steam-run
       gamescope
       gamemode
+
+      wl-clipboard
+      xdg-utils
+      vesktop
+      discord
     ];
   };
 
@@ -130,9 +140,6 @@
 	options = "terminate:ctrl_alt_bksp";
       };
       videoDrivers = [ "amdgpu" "nvidia" "modesetting" ];
-      desktopManager = {
-        xfce.enable = true;
-      };
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
@@ -206,5 +213,23 @@
 
   system = {
     stateVersion = "23.11";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
+  };
+
+  programs = {
+    hyprland = {
+      enable = true;
+      #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    };
+    xwayland = {
+      enable = true;
+    };
   };
 }
