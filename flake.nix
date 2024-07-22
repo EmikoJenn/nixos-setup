@@ -32,15 +32,15 @@
       modules = [
 	./modules/nixos/configuration.nix
         
-	#home-manager.nixosModules.home-manager
-        #{
-          #home-manager = {
-	    #useGlobalPkgs = true;
-            #useUserPackages = true;
-	    #users.emikojenn = import ./modules/home-manager/emikojenn;
-	    #extraSpecialArgs = { inherit inputs; };
-	  #};
-        #}
+	home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+	    useGlobalPkgs = true;
+            useUserPackages = true;
+	    users.emikojenn = import ./modules/home-manager/emikojenn;
+	    extraSpecialArgs = { inherit inputs; };
+	  };
+        }
       ];
     };
 
