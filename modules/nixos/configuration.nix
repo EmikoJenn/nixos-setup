@@ -20,7 +20,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     driSupport32Bit = true;
     extraPackages =  with pkgs; [ 
       amdvlk
