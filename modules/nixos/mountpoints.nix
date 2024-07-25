@@ -21,7 +21,6 @@
       device = "/dev/disk/by-uuid/f1e2ec61-ea58-40a7-8ea8-13790927d7f7";
       fsType = "btrfs";
       options = [
-        "users"
         "nofail"
 	"x-gvfs-show"
       ];
@@ -30,7 +29,6 @@
       device = "/dev/disk/by-uuid/04AE23884941B832";
       fsType = "ntfs-3g";
       options = [
-        "users"
 	"nofail"
 	"x-gvfs-show"
       ];
@@ -39,7 +37,6 @@
       device = "/dev/disk/by-uuid/DE989A199899F06F";
       fsType = "ntfs-3g";
       options = [
-        "users"
 	"nofail"
 	"x-gvfs-show"
       ];

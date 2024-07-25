@@ -3,6 +3,7 @@
   imports = [
     ./mountpoints.nix
     ./hardware-configuration.nix
+    inputs.hyprland.nixosModules.default
   ];
 
   nix.settings = {
@@ -20,17 +21,20 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  hardware.graphics = {
-    extraPackages =  with pkgs; [ 
-      amdvlk
-      mangohud
-      mesa.drivers
-      rocmPackages.clr.icd
-    ];
-    extraPackages32 = with pkgs; [ 
-      driversi686Linux.amdvlk
-      mangohud 
-    ];
+  hardware = {
+    graphics = {
+      enable32Bit = true;
+      extraPackages =  with pkgs; [ 
+        amdvlk
+        mangohud
+        mesa.drivers
+        rocmPackages.clr.icd
+      ];
+      extraPackages32 = with pkgs; [ 
+        driversi686Linux.amdvlk
+        mangohud 
+      ];
+    };
   };
 
   hardware.pulseaudio.enable = false;
@@ -52,12 +56,20 @@
     sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
+      MOZ_ENABLE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
+      T_QPA_PLATFORM = "wayland";
+      GDK_BACKEND = "wayland";
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
     variables = {
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_TYPE = "wayland";
+      XDG_SESSION_DESKTOP = "Hyprland";
     };
     systemPackages = with pkgs; [
-      xdg-desktop-portal-gtk
+      #xdg-desktop-portal-gtk
       xorg.xf86videoamdgpu
       vulkan-loader
       vulkan-tools
@@ -98,8 +110,8 @@
 
       wl-clipboard
       xdg-utils
+      hyprland
       vesktop
-      discord
     ];
   };
 
@@ -135,10 +147,10 @@
       enable = true;
       xkb = {
         layout = "us";
-	variant = "altgr-intl";
-	options = "terminate:ctrl_alt_bksp";
+	      variant = "altgr-intl";
+	      options = "terminate:ctrl_alt_bksp";
       };
-      videoDrivers = [ "amdgpu" "nvidia" "modesetting" ];
+      videoDrivers = [ "amdgpu" ];
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
@@ -166,11 +178,11 @@
       enable = true;
       plugins = with pkgs.xfce; [
         thunar-archive-plugin
-	thunar-volman
+	      thunar-volman
       ];
     };
     steam = {
-      enable = true;
+		  enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
@@ -216,15 +228,20 @@
 
   xdg.portal = {
     enable = true;
+    xdgOpenUsePortal = true;
+    config = {
+      common.default = ["gtk"];
+      hyprland.default = ["gtk" "hyprland"];
+    };
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
     ];
   };
 
   programs = {
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
     };
   };

@@ -28,7 +28,7 @@
   {
     nixosConfigurations.emikojenn_system = newSystem {
       inherit system;
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
 	./modules/nixos/configuration.nix
         
