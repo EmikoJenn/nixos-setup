@@ -111,6 +111,9 @@
       xdg-utils
       hyprland
       vesktop
+
+      # Theme
+      spacx-gtk-theme
     ];
   };
 
