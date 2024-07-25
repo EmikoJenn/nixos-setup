@@ -21,7 +21,6 @@
   };
 
   hardware.graphics = {
-    driSupport32Bit = true;
     extraPackages =  with pkgs; [ 
       amdvlk
       mangohud
@@ -58,7 +57,6 @@
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
     };
     systemPackages = with pkgs; [
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
       xorg.xf86videoamdgpu
       vulkan-loader
@@ -219,7 +217,6 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
   };
