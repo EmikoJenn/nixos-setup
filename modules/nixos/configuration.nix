@@ -54,7 +54,6 @@
   # ENV
   environment = {
     sessionVariables = {
-      XDG_CURRENT_DESKTOP = "sway";
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
       MOZ_ENABLE_WAYLAND = "1";
       NIXOS_OZONE_WL = "1";
