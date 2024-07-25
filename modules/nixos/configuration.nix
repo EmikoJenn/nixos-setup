@@ -58,6 +58,8 @@
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
     };
     systemPackages = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
       xorg.xf86videoamdgpu
       vulkan-loader
       vulkan-tools
@@ -217,18 +219,16 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
     ];
   };
 
   programs = {
     hyprland = {
       enable = true;
-      #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    };
-    xwayland = {
-      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      xwayland.enable = true;
     };
   };
 }
