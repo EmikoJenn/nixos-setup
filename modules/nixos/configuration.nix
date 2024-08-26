@@ -139,10 +139,9 @@
       enable = true;
       alsa = {
         enable = true;
-        support32Bit = true;
+	support32Bit = true;
       };
       pulse.enable = true;
-      wireplumber.enable = true;
     };
     displayManager.sddm.enable = true;
     xserver = {
@@ -153,6 +152,13 @@
 	      options = "terminate:ctrl_alt_bksp";
       };
       videoDrivers = [ "amdgpu" ];
+      desktopManager = {
+        xfce = {
+          enable = true;
+          thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
+        };
+        xterm.enable = false;
+      };
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
@@ -174,17 +180,18 @@
   security.polkit.enable = true;
 
   programs = {
+    dconf.enable = true;
     gamemode.enable = true;
     xfconf.enable = true;
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
         thunar-archive-plugin
-	      thunar-volman
+	thunar-volman
       ];
     };
     steam = {
-		  enable = true;
+      enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
@@ -237,7 +244,6 @@
     };
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
     ];
   };
 
