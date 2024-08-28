@@ -1,3 +1,4 @@
+
 { inputs, config, lib, pkgs, ... }: {
 
   imports = [
@@ -77,7 +78,8 @@
       ocl-icd
       sway-contrib.grimshot
       vscode
-      ffmpeg_5-full
+      ffmpeg_4-full
+      ffmpeg_7-full
       krita
       git
       wget
@@ -163,6 +165,10 @@
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
   };
 
   fonts.packages = with pkgs; [
