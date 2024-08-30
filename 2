@@ -119,9 +119,10 @@
 
       kitty
       kitty-themes
-      neovim
     ];
   };
+
+  fonts.packages = with pkgs; [ nerdfonts ];
 
   home-manager.users.emikojenn = {
     home.stateVersion = "23.11";
@@ -185,7 +186,6 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
-    nerdfonts
   ];
 
   security.polkit.enable = true;
@@ -208,6 +208,19 @@
     };
     appimage.enable = true;
     fish.enable = true;
+    kitty = {
+      enable = true;
+      font = {
+        name = "JetBrainsMono Nerd Font";
+        size = 10;
+      };
+      shellIntegration.enableFishIntegration = true;
+      theme = "Catppuccin-Macchiato";
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
   };
 
   users = {
@@ -216,6 +229,7 @@
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "video" "audio" "storage" "docker" ];
       packages = with pkgs; [
+        neovim
         firefox
         wezterm
         kitty
@@ -253,6 +267,4 @@
       xwayland.enable = true;
     };
   };
-
-  home-manager.backupFileExtension = "hm-bak";
 }
