@@ -4,7 +4,6 @@
   imports = [
     ./mountpoints.nix
     ./hardware-configuration.nix
-    inputs.hyprland.nixosModules.default
   ];
 
   nix.settings = {
@@ -69,7 +68,6 @@
       XDG_SESSION_DESKTOP = "Hyprland";
     };
     systemPackages = with pkgs; [
-      #xdg-desktop-portal-gtk
       xorg.xf86videoamdgpu
       vulkan-loader
       vulkan-tools
@@ -117,9 +115,20 @@
       # Theme
       spacx-gtk-theme
 
-      kitty
-      kitty-themes
+
       neovim
+
+      grim # screenshot functionality
+      slurp # screenshot functionality
+      wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      mako # notification system developed by swaywm maintainer
+      swaybg # background functionality
+      alacritty
+      swayidle
+      swayimg
+      swaylock
+      waybar
+      wofi
     ];
   };
 
@@ -140,6 +149,10 @@
   security.rtkit.enable = true;
 
   services = {
+    # Enable the gnome-keyring secrets vault. 
+    # Will be exposed through DBus to programs willing to store secrets.
+    gnome.gnome-keyring.enable = true;
+
     flatpak.enable = true;
     pipewire = {
       enable = true;
@@ -161,7 +174,6 @@
       desktopManager = {
         xfce = {
           enable = true;
-          thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
         };
         xterm.enable = false;
       };
@@ -208,6 +220,10 @@
     };
     appimage.enable = true;
     fish.enable = true;
+    nh = {
+      enable = true;
+      flake = "/etc/nixos/";
+    };
   };
 
   users = {
@@ -217,11 +233,17 @@
       extraGroups = [ "wheel" "networkmanager" "video" "audio" "storage" "docker" ];
       packages = with pkgs; [
         firefox
-        wezterm
-        kitty
         tmux
         pavucontrol
         thunderbird
+	unityhub
+	gh
+	azure-cli
+	yt-dlp
+	openjdk17
+	valgrind
+	xivlauncher
+	delta
      ];
     };
   };
@@ -237,21 +259,20 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    config = {
-      common.default = ["gtk"];
-      hyprland.default = ["gtk" "hyprland"];
-    };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
     ];
+    config = {
+      common.default = ["gtk" "wlr"];
+    };
   };
 
-  programs = {
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
+  # enable Sway window manager
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
   };
 
   home-manager.backupFileExtension = "hm-bak";

@@ -6,5 +6,6 @@
     #alvr = import ./alvr.nix;
     btop.enable = true;
     yt-dlp.enable = true;
+    lazygit.enable = true;
   };
 }
