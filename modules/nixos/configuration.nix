@@ -244,6 +244,9 @@
 	valgrind
 	xivlauncher
 	delta
+	steamcmd
+	r2modman
+	sidequest
      ];
     };
   };

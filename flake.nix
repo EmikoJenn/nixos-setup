@@ -26,7 +26,7 @@
     newHome = home-manager.lib.homeManagerConfiguration;
   in
   {
-    nixosConfigurations.emikojenn_system = newSystem {
+    nixosConfigurations.emikojenn = newSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = [
@@ -41,13 +41,6 @@
 	    extraSpecialArgs = { inherit inputs; };
 	  };
         }
-      ];
-    };
-
-    homeConfigurations.emikojenn_home = newHome {
-      inherit pkgs;
-      modules = [
-        ./modules/home-manager/emikojenn
       ];
     };
   };
