@@ -115,7 +115,6 @@
       # Theme
       spacx-gtk-theme
 
-
       neovim
 
       grim # screenshot functionality
@@ -129,6 +128,9 @@
       swaylock
       waybar
       wofi
+
+      ################################# VPN #################################
+      wireguard-tools
     ];
   };
 
@@ -162,6 +164,7 @@
       };
       pulse.enable = true;
     };
+    desktopManager.gnome.enable = true;
     displayManager.sddm.enable = true;
     xserver = {
       enable = true;
@@ -222,7 +225,11 @@
     fish.enable = true;
     nh = {
       enable = true;
-      flake = "/etc/nixos/";
+      clean = {
+        enable = true;
+	extraArgs = "--keep 15";
+      };
+      flake = "/etc/nixos";
     };
   };
 
@@ -247,6 +254,7 @@
 	steamcmd
 	r2modman
 	sidequest
+	deno
      ];
     };
   };
@@ -276,6 +284,25 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+  };
+
+
+  ####################################################	FIREWALL, VPN ###########################################################
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 80 443 8080 25565];
+      allowedUDPPorts = [ 51820 25565 ];
+      #allowedUDPPortRanges = [
+        #{ from = 4000; to = 4007; }
+        #{ from = 8000; to = 8010; }
+      #];
+    };
+    nat = {
+      enable = true;
+      externalInterface = "eth0";
+      internalInterfaces = [ "wg0" ];
+    };
   };
 
   home-manager.backupFileExtension = "hm-bak";
