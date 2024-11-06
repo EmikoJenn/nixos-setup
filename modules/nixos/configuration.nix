@@ -68,6 +68,7 @@
       XDG_SESSION_DESKTOP = "Hyprland";
     };
     systemPackages = with pkgs; [
+      #xdg-desktop-portal-gtk
       xorg.xf86videoamdgpu
       vulkan-loader
       vulkan-tools
@@ -102,7 +103,6 @@
       raylib
       gcc
       gdb
-      nodejs
       steam-run
       gamescope
       gamemode
@@ -170,8 +170,8 @@
       desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
-	      variant = "altgr-intl";
-	      options = "terminate:ctrl_alt_bksp";
+	  variant = "altgr-intl";
+	  options = "terminate:ctrl_alt_bksp";
       };
       videoDrivers = [ "amdgpu" ];
       desktopManager = {
@@ -192,7 +192,7 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
@@ -209,13 +209,6 @@
     dconf.enable = true;
     gamemode.enable = true;
     xfconf.enable = true;
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-	thunar-volman
-      ];
-    };
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -242,7 +235,6 @@
         firefox
         tmux
         pavucontrol
-        thunderbird
 	unityhub
 	gh
 	azure-cli
@@ -254,7 +246,6 @@
 	steamcmd
 	r2modman
 	sidequest
-	deno
      ];
     };
   };
@@ -271,6 +262,7 @@
     enable = true;
     xdgOpenUsePortal = true;
     wlr.enable = true;
+    #extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # enable Sway window manager

@@ -7,12 +7,9 @@
     prismlauncher
     thunderbird
     gparted
-    blender
-    #(zathura.override { useMupfd = true; })
   ];
 
   programs.zathura = {
     enable = true;
-    #useMupdf = true;
   };
 }
