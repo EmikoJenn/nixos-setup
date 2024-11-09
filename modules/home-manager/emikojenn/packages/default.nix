@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    alvr
     zathura
     obs-studio
     prismlauncher

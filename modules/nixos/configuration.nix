@@ -224,6 +224,35 @@
       };
       flake = "/etc/nixos";
     };
+
+    #	Library paths for unpacked libraries
+    nix-ld.enable = true;
+    nix-ld.libraries = with pkgs; [
+      stdenv.cc.cc.lib
+
+      xorg.libXcomposite
+      xorg.libXtst
+      xorg.libXrandr
+      xorg.libXext
+      xorg.libX11
+      xorg.libXfixes
+      libGL
+      libva
+
+      fontconfig
+      freetype
+      xorg.libXt
+      xorg.libXmu
+      libogg
+      libvorbis
+      SDL
+      SDL2_image
+      glew110
+      libdrm
+      libidn
+      tbb
+      zlib
+    ];
   };
 
   users = {
@@ -246,6 +275,7 @@
 	steamcmd
 	r2modman
 	sidequest
+	alvr
      ];
     };
   };
