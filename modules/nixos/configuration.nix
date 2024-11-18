@@ -4,6 +4,7 @@
   imports = [
     ./mountpoints.nix
     ./hardware-configuration.nix
+    ./vr.nix
   ];
 
   nix.settings = {
@@ -63,9 +64,7 @@
     };
     variables = {
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
-      XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_TYPE = "wayland";
-      XDG_SESSION_DESKTOP = "Hyprland";
     };
     systemPackages = with pkgs; [
       #xdg-desktop-portal-gtk
@@ -292,13 +291,6 @@
     enable = true;
     xdgOpenUsePortal = true;
     wlr.enable = true;
-    #extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
-  # enable Sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
   };
 
 
