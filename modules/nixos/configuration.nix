@@ -223,6 +223,10 @@
       };
       flake = "/etc/nixos";
     };
+    alvr = {
+      enable = true;
+      openFirewall = true;
+    };
 
     #	Library paths for unpacked libraries
     nix-ld.enable = true;
@@ -274,7 +278,6 @@
 	steamcmd
 	r2modman
 	sidequest
-	alvr
      ];
     };
   };
