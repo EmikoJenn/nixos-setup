@@ -4,7 +4,6 @@
   imports = [
     ./mountpoints.nix
     ./hardware-configuration.nix
-    ./vr.nix
   ];
 
   nix.settings = {
@@ -130,6 +129,8 @@
 
       ################################# VPN #################################
       wireguard-tools
+
+      alvr
     ];
   };
 
@@ -223,10 +224,6 @@
       };
       flake = "/etc/nixos";
     };
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
 
     #	Library paths for unpacked libraries
     nix-ld.enable = true;
@@ -290,11 +287,6 @@
     stateVersion = "23.11";
   };
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    wlr.enable = true;
-  };
 
 
   ####################################################	FIREWALL, VPN ###########################################################
