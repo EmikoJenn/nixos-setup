@@ -23,17 +23,9 @@
 
   hardware = {
     graphics = {
+      enable = true;
       enable32Bit = true;
-      extraPackages =  with pkgs; [ 
-        amdvlk
-        mangohud
-        mesa.drivers
-        rocmPackages.clr.icd
-      ];
-      extraPackages32 = with pkgs; [ 
-        driversi686Linux.amdvlk
-        mangohud 
-      ];
+      extraPackages =  with pkgs; [ rocmPackages.clr.icd ];
     };
   };
 
@@ -56,17 +48,20 @@
     sessionVariables = {
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
       MOZ_ENABLE_WAYLAND = "1";
-      NIXOS_OZONE_WL = "1";
-      T_QPA_PLATFORM = "wayland";
       GDK_BACKEND = "wayland";
-      WLR_NO_HARDWARE_CURSORS = "1";
     };
     variables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+      QT_QPA_PLATFORM = "wayland";
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
-      XDG_SESSION_TYPE = "wayland";
     };
     systemPackages = with pkgs; [
-      #xdg-desktop-portal-gtk
+      amdgpu_top
+      glxinfo
+      libva-utils
+
+
       xorg.xf86videoamdgpu
       vulkan-loader
       vulkan-tools
@@ -107,25 +102,13 @@
 
       wl-clipboard
       xdg-utils
-      hyprland
       vesktop
 
       # Theme
       spacx-gtk-theme
 
       neovim
-
-      grim # screenshot functionality
-      slurp # screenshot functionality
-      wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-      mako # notification system developed by swaywm maintainer
-      swaybg # background functionality
       alacritty
-      swayidle
-      swayimg
-      swaylock
-      waybar
-      wofi
 
       ################################# VPN #################################
       wireguard-tools
