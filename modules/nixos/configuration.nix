@@ -129,8 +129,6 @@
 
       ################################# VPN #################################
       wireguard-tools
-
-      alvr
     ];
   };
 
@@ -164,22 +162,16 @@
       };
       pulse.enable = true;
     };
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
 	  variant = "altgr-intl";
 	  options = "terminate:ctrl_alt_bksp";
       };
       videoDrivers = [ "amdgpu" ];
-      desktopManager = {
-        xfce = {
-          enable = true;
-        };
-        xterm.enable = false;
-      };
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
@@ -287,18 +279,24 @@
     stateVersion = "23.11";
   };
 
-
+  programs.alvr = {
+    enable = true;
+    openFirewall = true;
+  };
 
   ####################################################	FIREWALL, VPN ###########################################################
   networking = {
     firewall = {
       enable = true;
       allowedTCPPorts = [ 80 443 8080 25565];
+      allowedTCPPortRanges = [
+        { from = 9943; to = 9944; } # ALVR Ports
+      ];
+      
       allowedUDPPorts = [ 51820 25565 ];
-      #allowedUDPPortRanges = [
-        #{ from = 4000; to = 4007; }
-        #{ from = 8000; to = 8010; }
-      #];
+      allowedUDPPortRanges = [
+        { from = 9943; to = 9944; } # ALVR Ports
+      ];
     };
     nat = {
       enable = true;
