@@ -168,6 +168,7 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
     noto-fonts-emoji
     liberation_ttf
     fira-code
@@ -175,7 +176,7 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
-    nerdfonts
+    nerd-fonts.jetbrains-mono
   ];
 
   security.polkit.enable = true;
@@ -208,6 +209,7 @@
       };
       flake = "/etc/nixos";
     };
+    kdeconnect.enable = true;
 
     #	Library paths for unpacked libraries
     nix-ld.enable = true;
