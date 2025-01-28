@@ -109,6 +109,7 @@
 
       neovim
       alacritty
+      dolphin-emu-primehack
 
       inputs.firefox.packages."x86_64-linux".firefox-nightly-bin
 
@@ -165,7 +166,6 @@
       enable = true;
       package = pkgs.mariadb;
     };
-    udev.packages = [ pkgs.dolphin-emu ];
   };
 
   fonts.packages = with pkgs; [
