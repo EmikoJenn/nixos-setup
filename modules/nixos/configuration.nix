@@ -110,6 +110,8 @@
       neovim
       alacritty
 
+      inputs.firefox.packages."x86_64-linux".firefox-nightly-bin
+
       ################################# VPN #################################
       wireguard-tools
     ];
@@ -163,6 +165,7 @@
       enable = true;
       package = pkgs.mariadb;
     };
+    udev.packages = [ pkgs.dolphin-emu ];
   };
 
   fonts.packages = with pkgs; [
@@ -261,6 +264,8 @@
 	steamcmd
 	r2modman
 	sidequest
+	protonup-qt
+	davinci-resolve
      ];
     };
   };

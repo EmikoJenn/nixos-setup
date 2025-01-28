@@ -12,6 +12,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox.url = "github:nix-community/flake-firefox-nightly";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
