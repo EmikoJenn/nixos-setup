@@ -109,7 +109,6 @@
 
       neovim
       alacritty
-      dolphin-emu-primehack
 
       inputs.firefox.packages."x86_64-linux".firefox-nightly-bin
 
