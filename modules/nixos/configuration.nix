@@ -104,6 +104,9 @@
       xdg-utils
       vesktop
 
+      # Python package manager
+      uv
+
       # Theme
       spacx-gtk-theme
 
