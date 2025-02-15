@@ -29,7 +29,7 @@
     };
   };
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   virtualisation = {
     containers.enable = true;
