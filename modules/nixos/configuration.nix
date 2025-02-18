@@ -49,10 +49,10 @@
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
       MOZ_ENABLE_WAYLAND = "1";
       GDK_BACKEND = "wayland";
+      NIXOS_OZONE_WL = "1";
     };
     variables = {
       WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1";
       QT_QPA_PLATFORM = "wayland";
       LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
     };
