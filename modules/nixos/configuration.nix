@@ -268,6 +268,7 @@
 	sidequest
 	protonup-qt
 	davinci-resolve
+	discord
      ];
     };
   };
