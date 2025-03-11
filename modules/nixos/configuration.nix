@@ -113,8 +113,6 @@
       neovim
       alacritty
 
-      inputs.firefox.packages."x86_64-linux".firefox-nightly-bin
-
       ################################# VPN #################################
       wireguard-tools
     ];
