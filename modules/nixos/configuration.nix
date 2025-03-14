@@ -103,6 +103,7 @@
       wl-clipboard
       xdg-utils
       vesktop
+      anki-bin
 
       # Python package manager
       uv
