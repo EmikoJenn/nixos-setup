@@ -147,6 +147,7 @@
 	support32Bit = true;
       };
       pulse.enable = true;
+      wireplumber.enable = true;
     };
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
@@ -267,6 +268,7 @@
 	protonup-qt
 	davinci-resolve
 	discord
+	google-chrome
      ];
     };
   };
