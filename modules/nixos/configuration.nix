@@ -104,6 +104,7 @@
       xdg-utils
       vesktop
       anki-bin
+      mpv 
 
       # Python package manager
       uv
@@ -116,6 +117,7 @@
 
       ################################# VPN #################################
       wireguard-tools
+      wgnord
     ];
   };
 
