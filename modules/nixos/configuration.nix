@@ -100,6 +100,8 @@
       gamescope
       gamemode
 
+      qemu
+
       wl-clipboard
       xdg-utils
       vesktop
