@@ -41,6 +41,8 @@
       enable = true;
       defaultNetwork.settings.dns_enable = true;
     };
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
   };
 
   # ENV
@@ -210,6 +212,7 @@
     };
     appimage.enable = true;
     fish.enable = true;
+    virt-manager.enable = true;
     nh = {
       enable = true;
       clean = {
@@ -252,6 +255,7 @@
 
   users = {
     extraGroups.docker.members = [ "emikojenn" ];
+    groups.libvirtd.members = ["emikojenn"];
     users.emikojenn = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "video" "audio" "storage" "docker" ];
