@@ -263,7 +263,6 @@
         firefox
         tmux
         pavucontrol
-	unityhub
 	gh
 	azure-cli
 	yt-dlp
@@ -275,7 +274,6 @@
 	r2modman
 	sidequest
 	protonup-qt
-	davinci-resolve
 	discord
 	google-chrome
      ];
