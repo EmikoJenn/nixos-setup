@@ -101,6 +101,7 @@
       steam-run
       gamescope
       gamemode
+      unzip
 
       qemu
 
