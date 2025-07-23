@@ -102,6 +102,9 @@
       gamescope
       gamemode
       unzip
+      zip
+      postgresql
+      httpie
 
       qemu
 
