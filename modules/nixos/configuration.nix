@@ -29,6 +29,8 @@
     };
   };
 
+  security.pam.services.sddm.kwallet.enable = true;
+
   services.pulseaudio.enable = false;
 
   virtualisation = {
@@ -62,7 +64,6 @@
       amdgpu_top
       glxinfo
       libva-utils
-
 
       xorg.xf86videoamdgpu
       vulkan-loader
@@ -105,8 +106,13 @@
       zip
       postgresql
       httpie
+      unityhub
+      steam-run
 
       qemu
+
+      seahorse
+      libsecret
 
       wl-clipboard
       xdg-utils
@@ -254,6 +260,25 @@
       libidn
       tbb
       zlib
+
+      libxml2 zlib
+      gtk3 glib gdk-pixbuf pango cairo at-spi2-core
+      xorg.libXcursor
+      xorg.libXi
+      xorg.libXrender
+      libxkbcommon
+      mesa
+      libGL
+      nss
+      nspr
+      pulseaudio
+      libpulseaudio
+      fontconfig
+      freetype
+      udev
+      dbus
+      curl
+      openssl
     ];
   };
 
