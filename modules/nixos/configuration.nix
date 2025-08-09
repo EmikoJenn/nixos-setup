@@ -261,7 +261,7 @@
       tbb
       zlib
 
-      libxml2 zlib
+      zlib
       gtk3 glib gdk-pixbuf pango cairo at-spi2-core
       xorg.libXcursor
       xorg.libXi
@@ -345,3 +345,4 @@
 
   home-manager.backupFileExtension = "hm-bak";
 }
+
