@@ -13,6 +13,7 @@
   };
  
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "libxml2-2.13.8" ];
 
   # Use the systemd-boot EFI boot loader.
   boot = {
@@ -122,6 +123,9 @@
 
       # Python package manager
       uv
+
+      cmake
+      make
 
       # Theme
       spacx-gtk-theme
@@ -260,25 +264,6 @@
       libidn
       tbb
       zlib
-
-      zlib
-      gtk3 glib gdk-pixbuf pango cairo at-spi2-core
-      xorg.libXcursor
-      xorg.libXi
-      xorg.libXrender
-      libxkbcommon
-      mesa
-      libGL
-      nss
-      nspr
-      pulseaudio
-      libpulseaudio
-      fontconfig
-      freetype
-      udev
-      dbus
-      curl
-      openssl
     ];
   };
 
