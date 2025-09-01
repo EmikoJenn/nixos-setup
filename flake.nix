@@ -25,6 +25,7 @@
     newHome = home-manager.lib.homeManagerConfiguration;
   in
   {
+
     nixosConfigurations.emikojenn = newSystem {
       inherit system;
       specialArgs = { inherit inputs; };

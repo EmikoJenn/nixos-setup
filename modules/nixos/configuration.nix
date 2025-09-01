@@ -124,18 +124,15 @@
       # Python package manager
       uv
 
-      cmake
-      make
-
       # Theme
       spacx-gtk-theme
 
       neovim
       alacritty
 
-      ################################# VPN #################################
-      wireguard-tools
-      wgnord
+      # Firewall libs for ALVR
+      iptables
+      nftables
     ];
   };
 
@@ -309,17 +306,11 @@
 
   ####################################################	FIREWALL, VPN ###########################################################
   networking = {
+    nftables.enable = true;
     firewall = {
       enable = true;
       allowedTCPPorts = [ 80 443 8080 25565];
-      allowedTCPPortRanges = [
-        { from = 9943; to = 9944; } # ALVR Ports
-      ];
-      
-      allowedUDPPorts = [ 51820 25565 ];
-      allowedUDPPortRanges = [
-        { from = 9943; to = 9944; } # ALVR Ports
-      ];
+      allowedUDPPorts = [ 51820 25565 9944 9945 9946 9947 9948 9949 ];
     };
     nat = {
       enable = true;
