@@ -16,4 +16,4 @@
     # obs-gstreamer
     # obs-vkcapture
   ];
-};
+}
