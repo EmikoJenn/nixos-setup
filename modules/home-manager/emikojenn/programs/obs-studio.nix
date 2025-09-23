@@ -9,12 +9,12 @@
     #}
   #);
 
-  plugins = with obs-studio-plugins; [
-    wlrobs
+  # plugins = with obs-studio-plugins; [
+    # wlrobs
     # obs-backgroundremoval
-    obs-pipewire-audio-capture
+    # obs-pipewire-audio-capture
     # obs-vaapi #optional AMD hardware acceleration
     # obs-gstreamer
     # obs-vkcapture
-  ];
+  # ];
 }
