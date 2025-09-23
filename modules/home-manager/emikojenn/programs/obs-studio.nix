@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 {
   enable = true;
 
