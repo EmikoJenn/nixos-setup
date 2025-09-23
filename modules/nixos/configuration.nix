@@ -86,6 +86,7 @@
       tmux
       SDL2
       unzip
+      rar
       gnumake
       fd
       glfw
@@ -129,6 +130,7 @@
 
       neovim
       alacritty
+      zed-editor
 
       # Firewall libs for ALVR
       iptables
@@ -275,7 +277,6 @@
         tmux
         pavucontrol
 	gh
-	azure-cli
 	yt-dlp
 	openjdk17
 	valgrind
