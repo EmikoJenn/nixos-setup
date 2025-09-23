@@ -6,7 +6,7 @@
     stateVersion = "23.11";
   };
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     ./programs
     ./packages
     #./containers
