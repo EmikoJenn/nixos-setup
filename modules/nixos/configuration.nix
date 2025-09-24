@@ -11,7 +11,7 @@
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
- 
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "libxml2-2.13.8" ];
 
@@ -110,6 +110,7 @@
       httpie
       unityhub
       steam-run
+      blender
 
       qemu
 
@@ -120,7 +121,7 @@
       xdg-utils
       vesktop
       anki-bin
-      mpv 
+      mpv
 
       # Python package manager
       uv
@@ -155,7 +156,7 @@
   security.rtkit.enable = true;
 
   services = {
-    # Enable the gnome-keyring secrets vault. 
+    # Enable the gnome-keyring secrets vault.
     # Will be exposed through DBus to programs willing to store secrets.
     gnome.gnome-keyring.enable = true;
 
@@ -322,4 +323,3 @@
 
   home-manager.backupFileExtension = "hm-bak";
 }
-
