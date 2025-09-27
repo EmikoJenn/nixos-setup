@@ -39,7 +39,6 @@
             extraSpecialArgs = { inherit inputs; };
           };
         }
-        (import ./modules/home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix)
       ];
     };
   };
