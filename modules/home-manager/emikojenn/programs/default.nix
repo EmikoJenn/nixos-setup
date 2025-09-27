@@ -1,17 +1,18 @@
 { pkgs, ... }:
 let
-  proton-ge-rtsp-bin = pkgs.callPackage ../overlays/proton-ge-rtsp-bin/default.nix {};
+  proton-ge-rtsp-bin = callPackage ../overlays/proton-ge-rtsp-bin/default.nix {};
 in
 {
+  home-manager.enable = true;
+
   programs = {
     steam = {
       enable = true;
-        extraCompatPackages = [
-          pkgs.proton-ge-bin
+        extraCompatPackages = with pkgs; [
+          proton-ge-bin
           proton-ge-rtsp-bin
         ];
       };
-    home-manager.enable = true;
     git = import ./git.nix;
     obs-studio = import ./obs-studio.nix;
     btop = {
