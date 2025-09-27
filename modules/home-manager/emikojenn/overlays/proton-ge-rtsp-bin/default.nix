@@ -6,6 +6,7 @@
   # Can be overridden to alter the display name in steam
   # This could be useful if multiple versions should be installed together
   steamDisplayName ? "GE-Proton-RTSP",
+  ...
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "proton-ge-rtsp-bin";

@@ -10,7 +10,6 @@
     ./programs
     ./packages
 
-    ./overlays/proton-ge-rtsp-bin/default.nix
     #./containers
     #./theme/gtk.nix
   ];

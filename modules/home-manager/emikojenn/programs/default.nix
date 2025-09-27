@@ -1,14 +1,14 @@
 { pkgs, ... }:
+let
+  proton-ge-rtsp-bin = pkgs.callPackage ../overlays/proton-ge-rtsp-bin/default.nix {};
+in
 {
-  # imports =  [
-    # ./alvr.nix
-  # ];
   programs = {
     steam = {
       enable = true;
         extraCompatPackages = [
           pkgs.proton-ge-bin
-          pkgs.proton-ge-rtsp-bin
+          proton-ge-rtsp-bin
         ];
       };
     home-manager.enable = true;
