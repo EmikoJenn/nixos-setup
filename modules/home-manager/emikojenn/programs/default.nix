@@ -3,8 +3,6 @@ let
   proton-ge-rtsp-bin = pkgs.callPackage ../overlays/proton-ge-rtsp-bin/default.nix {};
 in
 {
-  home-manager.enable = true;
-
   programs = {
     steam = {
       enable = true;
