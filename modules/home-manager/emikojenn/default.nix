@@ -6,7 +6,6 @@
     stateVersion = "23.11";
   };
   imports = [
-    inherit inputs
     inputs.nixvim.homeModules.nixvim
     ./programs
     ./packages

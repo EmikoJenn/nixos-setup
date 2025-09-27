@@ -35,7 +35,9 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.emikojenn = import ./modules/home-manager/emikojenn;
+            users.emikojenn = import ./modules/home-manager/emikojenn {
+              inherit inputs;
+            };
             extraSpecialArgs = { inherit inputs; };
           };
         }
