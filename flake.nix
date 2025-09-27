@@ -6,7 +6,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs"; 
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -25,22 +25,21 @@
     newHome = home-manager.lib.homeManagerConfiguration;
   in
   {
-
     nixosConfigurations.emikojenn = newSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = [
-	./modules/nixos/configuration.nix
-        
-	home-manager.nixosModules.home-manager
+	      ./modules/nixos/configuration.nix
+        home-manager.nixosModules.home-manager
         {
           home-manager = {
-	    useGlobalPkgs = true;
+            useGlobalPkgs = true;
             useUserPackages = true;
-	    users.emikojenn = import ./modules/home-manager/emikojenn;
-	    extraSpecialArgs = { inherit inputs; };
-	  };
+            users.emikojenn = import ./modules/home-manager/emikojenn;
+            extraSpecialArgs = { inherit inputs; };
+          };
         }
+        (import ./modules/home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix)
       ];
     };
   };
