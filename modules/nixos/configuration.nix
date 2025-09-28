@@ -313,5 +313,16 @@
     };
   };
 
+  # Configure Home Manager for the local user via our per-user module
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };  # allow passing inputs into imported user module
+    users.emikojenn = import ./home-manager/emikojenn/default.nix {
+      inherit inputs pkgs;
+    };
+  };
+
+
   home-manager.backupFileExtension = "hm-bak";
 }
