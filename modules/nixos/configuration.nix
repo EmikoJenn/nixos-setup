@@ -1,7 +1,7 @@
 
 { inputs, config, lib, pkgs, ... }:
 let
-  proton-ge-rtsp-bin = pkgs.callPackage ../overlays/proton-ge-rtsp-bin/default.nix {};
+  proton-ge-rtsp-bin = pkgs.callPackage ../home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix {};
 in
 {
 
