@@ -1,5 +1,9 @@
 
-{ inputs, config, lib, pkgs, ... }: {
+{ inputs, config, lib, pkgs, ... }:
+let
+  proton-ge-rtsp-bin = pkgs.callPackage ../overlays/proton-ge-rtsp-bin/default.nix {};
+in
+{
 
   imports = [
     ./mountpoints.nix
@@ -208,12 +212,11 @@
     xfconf.enable = true;
     steam = {
       enable = true;
-      package = pkgs.steam.override {
-        extraPkgs = pkgs: with pkgs; [
-          corefonts
-          vistafonts
-        ];
-      };
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+        proton-ge-rtsp-bin
+      ];
+    };
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
