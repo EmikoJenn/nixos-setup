@@ -318,7 +318,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };  # allow passing inputs into imported user module
-    users.emikojenn = import ./home-manager/emikojenn/default.nix {
+    users.emikojenn = import ../home-manager/emikojenn/default.nix {
       inherit inputs pkgs;
     };
   };
