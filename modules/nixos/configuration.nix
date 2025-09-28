@@ -4,7 +4,7 @@ let
   proton-ge-rtsp-bin = pkgs.callPackage ../home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix {};
 in
 {
-
+  system.stateVersion = "23.11";
   imports = [
     ./mountpoints.nix
     ./hardware-configuration.nix
