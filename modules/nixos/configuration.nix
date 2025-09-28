@@ -139,10 +139,6 @@
     ];
   };
 
-  home-manager.users.emikojenn = {
-    home.stateVersion = "23.11";
-  };
-
   time.timeZone = "America/Chihuahua";
 
   # Select internationalisation properties.
@@ -296,10 +292,6 @@
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
-
-  system = {
-    stateVersion = "23.11";
-  };
 
   programs.alvr = {
     enable = true;
