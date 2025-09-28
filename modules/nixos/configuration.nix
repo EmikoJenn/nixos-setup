@@ -321,8 +321,7 @@ in
     users.emikojenn = import ../home-manager/emikojenn/default.nix {
       inherit inputs pkgs;
     };
+    stateVersion = "23.11";
+    backupFileExtension = "hm-bak";
   };
-
-
-  home-manager.backupFileExtension = "hm-bak";
 }
