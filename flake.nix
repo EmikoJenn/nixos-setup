@@ -32,7 +32,6 @@
         home-manager.nixosModules.home-manager
 
 	      ./modules/nixos/configuration.nix
-        }
       ];
     };
   };
