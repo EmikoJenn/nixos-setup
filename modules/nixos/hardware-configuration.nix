@@ -11,6 +11,7 @@
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = ["ntfs"];
 

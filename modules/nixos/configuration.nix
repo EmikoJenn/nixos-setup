@@ -1,4 +1,3 @@
-
 { inputs, config, lib, pkgs, ... }:
 let
   proton-ge-rtsp-bin = pkgs.callPackage ../home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix {};
@@ -50,6 +49,7 @@ in
     };
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
+    virtualbox.host.enable = true;
   };
 
   # ENV
@@ -115,6 +115,9 @@ in
       unityhub
       steam-run
       blender
+      brave
+      onlyoffice-bin
+      pgadmin4
 
       qemu
 
@@ -264,11 +267,14 @@ in
   };
 
   users = {
-    extraGroups.docker.members = [ "emikojenn" ];
+    extraGroups = {
+      docker.members = [ "emikojenn" ];
+      vboxusers.members = [ "emikojenn" ];
+    };
     groups.libvirtd.members = ["emikojenn"];
     users.emikojenn = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" "storage" "docker" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" "storage" "docker" "emikojenn" ];
       packages = with pkgs; [
         firefox
         tmux
