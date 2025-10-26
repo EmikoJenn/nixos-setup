@@ -118,6 +118,7 @@ in
       brave
       onlyoffice-bin
       pgadmin4
+      element-desktop
 
       qemu
 
