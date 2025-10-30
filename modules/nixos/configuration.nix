@@ -120,6 +120,7 @@ in
       pgadmin4
       element-desktop
       godot_4
+      dotnet-sdk_10
 
       qemu
 
