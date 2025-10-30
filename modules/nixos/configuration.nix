@@ -119,6 +119,7 @@ in
       onlyoffice-bin
       pgadmin4
       element-desktop
+      godot_4
 
       qemu
 
