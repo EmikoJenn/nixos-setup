@@ -62,8 +62,10 @@ in
     };
     variables = {
       WLR_NO_HARDWARE_CURSORS = "1";
-      QT_QPA_PLATFORM = "wayland";
-      LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
+      QT_QPA_PLATFORM         = "wayland";
+      LD_LIBRARY_PATH         = "${pkgs.vulkan-loader}/lib";
+      DOTNET_ROOT             = "${pkgs.dotnet-sdk_10}/share/dotnet";
+      DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_10}/share/dotnet";
     };
     systemPackages = with pkgs; [
       amdgpu_top
@@ -227,7 +229,12 @@ in
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
     appimage.enable = true;
-    fish.enable = true;
+    fish = {
+      enable = true;
+      shellInit = ''
+        set -x PATH $HOME/.dotnet/tools $PATH
+      '';
+    };
     virt-manager.enable = true;
     nh = {
       enable = true;
