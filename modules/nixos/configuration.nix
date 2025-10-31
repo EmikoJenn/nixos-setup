@@ -64,10 +64,22 @@ in
       WLR_NO_HARDWARE_CURSORS = "1";
       QT_QPA_PLATFORM         = "wayland";
       LD_LIBRARY_PATH         = "${pkgs.vulkan-loader}/lib";
-      DOTNET_ROOT             = "${pkgs.dotnet-sdk_10}/share/dotnet";
-      DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_10}/share/dotnet";
+      DOTNET_ROOT             = "${pkgs.dotnet-sdk_8}/share/dotnet";
+      DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_8}/share/dotnet";
     };
     systemPackages = with pkgs; [
+      tmux
+      git
+      stow
+
+      rar
+      zip
+      unzip
+
+      wget
+      httpie
+
+      qemu
       amdgpu_top
       glxinfo
       libva-utils
@@ -79,20 +91,15 @@ in
       radeontop
       ocl-icd
       sway-contrib.grimshot
-      vscode
       ffmpeg_4-full
       ffmpeg_7-full
       krita
-      git
-      wget
+
       dive
       podman-compose
       vlc
       libvlc
-      tmux
       SDL2
-      unzip
-      rar
       gnumake
       fd
       glfw
@@ -110,21 +117,15 @@ in
       steam-run
       gamescope
       gamemode
-      unzip
-      zip
       postgresql
-      httpie
       unityhub
-      steam-run
       blender
       brave
       onlyoffice-bin
       pgadmin4
       element-desktop
       godot_4
-      dotnet-sdk_10
-
-      qemu
+      dotnet-sdk_8
 
       seahorse
       libsecret
@@ -141,6 +142,7 @@ in
       # Theme
       spacx-gtk-theme
 
+      vscode
       neovim
       alacritty
       zed-editor
@@ -232,7 +234,9 @@ in
     fish = {
       enable = true;
       shellInit = ''
-        set -x PATH $HOME/.dotnet/tools $PATH
+        set -x PATH $HOME/.dotnet/tools $PATH;
+        set -x DOTNET_ROOT ${pkgs.dotnet-sdk_8}/share/dotnet;
+        set -x DOTNET_ROOT_X64 ${pkgs.dotnet-sdk_8}/share/dotnet;
       '';
     };
     virt-manager.enable = true;
