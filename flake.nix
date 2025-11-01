@@ -55,7 +55,7 @@
             };
             # END Git related config
           };
-				};
+				}
       ];
     };
   };
