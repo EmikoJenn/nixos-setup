@@ -60,7 +60,6 @@ in
       LD_LIBRARY_PATH         = "${pkgs.vulkan-loader}/lib";
       DOTNET_ROOT             = "${pkgs.dotnet-sdk_8}/share/dotnet";
       DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_8}/share/dotnet";
-      XRT_COMPOSITOR_COMPUTE  = "1";
     };
     systemPackages = with pkgs; [
       tmux
@@ -193,7 +192,7 @@ in
         variant = "altgr-intl";
         options = "terminate:ctrl_alt_bksp";
       };
-      videoDrivers = [ "amdgpu" ];
+      video.drivers = [ "amd" ];
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
