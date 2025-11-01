@@ -231,13 +231,13 @@ in
     lfs.enable = true;
     userName  = "EmikoJenn";
     userEmail = "EmikoJenn@proton.me";
+    aliases = {
+      cfg = "config --list";
+      uncommit = "reset --soft HEAD^";
+      logall = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
+    };
     extraConfig = {
       pull.rebase = true;
-      aliases = {
-        cfg = "config --list";
-        uncommit = "reset --soft HEAD^";
-        logall = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
-      };
     };
   };
   # END Git related config
