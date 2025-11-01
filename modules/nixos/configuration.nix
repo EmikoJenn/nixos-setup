@@ -192,7 +192,7 @@ in
         variant = "altgr-intl";
         options = "terminate:ctrl_alt_bksp";
       };
-      video.drivers = [ "amd" ];
+      videoDrivers = [ "amd" ];
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
