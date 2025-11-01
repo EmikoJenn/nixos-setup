@@ -6,7 +6,10 @@
     stateVersion = "23.11";
 
     sessionVariables = {
-      XRT_COMPOSITOR_COMPUTE = 1;
+      LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
+      MOZ_ENABLE_WAYLAND = "1";
+      GDK_BACKEND = "wayland";
+      NIXOS_OZONE_WL = "1";
     };
   };
 

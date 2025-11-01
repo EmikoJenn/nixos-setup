@@ -54,18 +54,13 @@ in
 
   # ENV
   environment = {
-    sessionVariables = {
-      LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib";
-      MOZ_ENABLE_WAYLAND = "1";
-      GDK_BACKEND = "wayland";
-      NIXOS_OZONE_WL = "1";
-    };
     variables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       QT_QPA_PLATFORM         = "wayland";
       LD_LIBRARY_PATH         = "${pkgs.vulkan-loader}/lib";
       DOTNET_ROOT             = "${pkgs.dotnet-sdk_8}/share/dotnet";
       DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_8}/share/dotnet";
+      XRT_COMPOSITOR_COMPUTE  = "1";
     };
     systemPackages = with pkgs; [
       tmux
