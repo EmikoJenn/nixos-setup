@@ -34,7 +34,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.emikojenn = {
-            ./modules/home-manager/emikojenn
+            imports = [
+              ./modules/home-manager/emikojenn
+            ];
+
             # Git related config
             programs.git = {
               enable = true;
