@@ -10,6 +10,7 @@
       MOZ_ENABLE_WAYLAND = "1";
       GDK_BACKEND = "wayland";
       NIXOS_OZONE_WL = "1";
+      XRT_COMPOSITOR_COMPUTE = "1";
     };
   };
 
