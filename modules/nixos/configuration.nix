@@ -69,7 +69,6 @@ in
     };
     systemPackages = with pkgs; [
       tmux
-      git
       stow
 
       rar
@@ -165,17 +164,27 @@ in
 
   security.rtkit.enable = true;
 
+   #  Monado SteamVR alternative
+  services.monado = {
+    enable = true;
+    defaultRuntime = true; # Register as default OpenXR runtime
+  };
+  systemd.user.services.monado.environment = {
+    STEAMVR_LH_ENABLE = "1";
+    XRT_COMPOSITOR_COMPUTE = "1";
+  };
+  # END Monado SteamVR alternative
+
   services = {
     # Enable the gnome-keyring secrets vault.
     # Will be exposed through DBus to programs willing to store secrets.
     gnome.gnome-keyring.enable = true;
-
     flatpak.enable = true;
     pipewire = {
       enable = true;
       alsa = {
         enable = true;
-	support32Bit = true;
+        support32Bit = true;
       };
       pulse.enable = true;
       wireplumber.enable = true;
@@ -186,8 +195,8 @@ in
       enable = true;
       xkb = {
         layout = "us";
-	  variant = "altgr-intl";
-	  options = "terminate:ctrl_alt_bksp";
+        variant = "altgr-intl";
+        options = "terminate:ctrl_alt_bksp";
       };
       videoDrivers = [ "amdgpu" ];
     };
@@ -215,6 +224,24 @@ in
   ];
 
   security.polkit.enable = true;
+
+  # Git related config
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+    userName  = "EmikoJenn";
+    userEmail = "EmikoJenn@proton.me";
+    aliases = {
+      cfg = "config --list";
+      uncommit = "reset --soft HEAD^";
+      logall = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
+    };
+    extraConfig = {
+      pull.rebase = true;
+    };
+  };
+  # END Git related config
+
 
   programs = {
     dconf.enable = true;
