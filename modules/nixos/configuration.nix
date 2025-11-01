@@ -299,7 +299,6 @@ in
 	valgrind
 	xivlauncher
 	delta
-	steamcmd
 	r2modman
 	sidequest
 	protonup-qt
@@ -324,7 +323,7 @@ in
     firewall = {
       enable = true;
       allowedTCPPorts = [ 80 443 8080 25565];
-      allowedUDPPorts = [ 51820 25565 9944 9945 9946 9947 9948 9949 ];
+      allowedUDPPorts = [ 51820 25565 9943 9944 9945 9946 9947 9948 9949 ];
     };
     nat = {
       enable = true;
