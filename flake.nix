@@ -33,27 +33,11 @@
 				home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+
           home-manager.users.emikojenn = {
             imports = [
               ./modules/home-manager/emikojenn
             ];
-
-            # Git related config
-            programs.git = {
-              enable = true;
-              lfs.enable = true;
-              userName  = "EmikoJenn";
-              userEmail = "EmikoJenn@proton.me";
-              aliases = {
-                cfg = "config --list";
-                uncommit = "reset --soft HEAD^";
-                logall = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
-              };
-              extraConfig = {
-                pull.rebase = true;
-              };
-            };
-            # END Git related config
           };
 				}
       ];
