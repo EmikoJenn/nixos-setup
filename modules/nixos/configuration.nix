@@ -7,7 +7,7 @@ in
   imports = [
     ./mountpoints.nix
     ./hardware-configuration.nix
-    ./programs/steam.nix
+    ./programs/steam.nix { inherit proton-ge-rtsp-bin; }
   ];
 
   nix.settings = {

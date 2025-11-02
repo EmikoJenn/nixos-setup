@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, proton-ge-rtsp-bin, ... }: {
   programs.steam = {
     enable = true;
     extraCompatPackages = [
