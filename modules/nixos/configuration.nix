@@ -116,6 +116,7 @@ in
       dotnet-sdk_8
 
       steam-run
+      steamcmd
       gamescope
       gamemode
       envision
