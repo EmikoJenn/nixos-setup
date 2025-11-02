@@ -7,6 +7,7 @@ in
   imports = [
     ./mountpoints.nix
     ./hardware-configuration.nix
+    ./programs/steam.nix
   ];
 
   nix.settings = {
