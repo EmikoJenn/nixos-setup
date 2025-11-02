@@ -185,6 +185,11 @@ in
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
   };
+
+  hardware.steam-hardware.enable = true;
+  environment.systemPackages = [
+    pkgs.envision
+  ];
   # END Steam
 
 
