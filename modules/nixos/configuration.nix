@@ -115,11 +115,15 @@ in
       godot_4
       dotnet-sdk_8
 
+      # Steam Related apps
       steam-run
       steamcmd
       gamescope
       gamemode
+
+      # VR Related apps
       envision
+      slimevr
 
       seahorse
       libsecret
