@@ -113,7 +113,7 @@ in
       unityhub
       blender
       brave
-      onlyoffice-bin
+      onlyoffice-desktopeditors
       pgadmin4
       element-desktop
       godot_4
