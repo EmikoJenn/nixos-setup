@@ -74,7 +74,6 @@ in
 
       qemu
       amdgpu_top
-      glxinfo
       libva-utils
 
       xorg.xf86videoamdgpu
