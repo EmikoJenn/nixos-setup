@@ -158,6 +158,9 @@ in
 
   security.rtkit.enable = true;
 
+
+
+
    #  Monado SteamVR alternative
   services.monado = {
     enable = true;
@@ -168,6 +171,25 @@ in
     XRT_COMPOSITOR_COMPUTE = "1";
   };
   # END Monado SteamVR alternative
+
+
+
+
+  # Steam
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = [
+      pkgs.proton-ge-bin
+      proton-ge-rtsp-bin
+    ];
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+  # END Steam
+
+
+
 
   services = {
     # Enable the gnome-keyring secrets vault.
