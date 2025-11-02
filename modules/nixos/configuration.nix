@@ -172,6 +172,13 @@ in
     STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
   };
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    extraPackages = with pkgs; [
+      mesa
+    ];
+  };
   # END Monado SteamVR alternative
 
 
@@ -190,14 +197,6 @@ in
   };
 
   hardware.steam-hardware.enable = true;
-  # VR Envision Monand
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    extraPackages = with pkgs; [
-      mesa
-    ];
-  };
   # END Steam
 
 
@@ -218,7 +217,7 @@ in
       wireplumber.enable = true;
     };
     displaymanager.sddm.enable = true;
-    desktopmanager.plasma6.enable = true;
+    desktopManager.plasma6.enable = true;
     xserver = {
       enable = true;
       xkb = {
