@@ -172,7 +172,6 @@ in
   };
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     extraPackages = with pkgs; [
       mesa
     ];
@@ -198,10 +197,6 @@ in
   # END Steam
 
 
-  hardware.pulseaudio = {
-    enable = true;
-    support32Bit = true;
-  };
 
 
   services = {
@@ -210,7 +205,6 @@ in
     pipewire = {
       enable = true;
       alsa.enable = true;
-      pulse.enable = true;
       wireplumber.enable = true;
     };
     displayManager.sddm.enable = true;
@@ -267,7 +261,7 @@ in
       enable = true;
       clean = {
         enable = true;
-	extraArgs = "--keep 15";
+        extraArgs = "--keep 15";
       };
       flake = "/etc/nixos";
     };
@@ -316,17 +310,17 @@ in
         firefox
         tmux
         pavucontrol
-	gh
-	yt-dlp
-	openjdk17
-	valgrind
-	xivlauncher
-	delta
-	r2modman
-	sidequest
-	protonup-qt
-	discord
-	google-chrome
+       	gh
+       	yt-dlp
+       	openjdk17
+       	valgrind
+       	xivlauncher
+       	delta
+       	r2modman
+       	sidequest
+       	protonup-qt
+       	discord
+       	google-chrome
      ];
     };
   };
@@ -353,16 +347,5 @@ in
       externalInterface = "eth0";
       internalInterfaces = [ "wg0" ];
     };
-  };
-
-  # Configure Home Manager for the local user via our per-user module
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };  # allow passing inputs into imported user module
-    users.emikojenn = import ../home-manager/emikojenn/default.nix {
-      inherit inputs pkgs;
-    };
-    backupFileExtension = "hm-bak";
   };
 }
