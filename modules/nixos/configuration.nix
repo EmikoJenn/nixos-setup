@@ -200,11 +200,13 @@ in
   # END Steam
 
 
+  hardware.pulseaudio = {
+    enable = true;
+    support32Bit = true;
+  };
 
 
   services = {
-    # enable the gnome-keyring secrets vault.
-    # will be exposed through dbus to programs willing to store secrets.
     gnome.gnome-keyring.enable = true;
     flatpak.enable = true;
     pipewire = {
