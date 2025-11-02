@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   programs = {
     git = import ./git.nix;
-    steam = import ./steam.nix;
     obs-studio = import ./obs-studio.nix;
     btop = {
       enable = true;
