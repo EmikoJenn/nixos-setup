@@ -54,7 +54,7 @@ in
   environment = {
     variables = {
       WLR_NO_HARDWARE_CURSORS = "1";
-      QT_QPA_PLATFORM         = "wayland";
+      # QT_QPA_PLATFORM         = "wayland";
       LD_LIBRARY_PATH         = "${pkgs.vulkan-loader}/lib";
       DOTNET_ROOT             = "${pkgs.dotnet-sdk_8}/share/dotnet";
       DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_8}/share/dotnet";

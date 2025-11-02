@@ -22,7 +22,7 @@
       # inherit system;
       # config.allowUnfree = true;
     # };
-    # newHome = home-manager.lib.homeManagerConfiguration;
+    createHome = home-manager.nixosModules.home-manager;
   in
   {
     nixosConfigurations.emikojenn = usrConf {
@@ -30,7 +30,7 @@
       modules = [
 	      ./modules/nixos/configuration.nix
 
-				home-manager.nixosModules.home-manager {
+				createHome {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
