@@ -222,7 +222,7 @@ in
         variant = "altgr-intl";
         options = "terminate:ctrl_alt_bksp";
       };
-      videodrivers = [ "amdgpu" ];
+      videoDrivers = [ "amdgpu" ];
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
