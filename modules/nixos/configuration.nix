@@ -106,9 +106,7 @@ in
       raylib
       gcc
       gdb
-      steam-run
-      gamescope
-      gamemode
+
       postgresql
       unityhub
       blender
@@ -118,6 +116,11 @@ in
       element-desktop
       godot_4
       dotnet-sdk_8
+
+      steam-run
+      gamescope
+      gamemode
+      envision
 
       seahorse
       libsecret
@@ -187,9 +190,6 @@ in
   };
 
   hardware.steam-hardware.enable = true;
-  environment.systemPackages = [
-    pkgs.envision
-  ];
   # END Steam
 
 
