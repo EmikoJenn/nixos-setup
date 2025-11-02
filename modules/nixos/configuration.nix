@@ -190,27 +190,35 @@ in
   };
 
   hardware.steam-hardware.enable = true;
+  # VR Envision Monand
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    extraPackages = with pkgs; [
+      mesa
+    ];
+  };
   # END Steam
 
 
 
 
   services = {
-    # Enable the gnome-keyring secrets vault.
-    # Will be exposed through DBus to programs willing to store secrets.
+    # enable the gnome-keyring secrets vault.
+    # will be exposed through dbus to programs willing to store secrets.
     gnome.gnome-keyring.enable = true;
     flatpak.enable = true;
     pipewire = {
       enable = true;
       alsa = {
         enable = true;
-        support32Bit = true;
+        support32bit = true;
       };
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
+    displaymanager.sddm.enable = true;
+    desktopmanager.plasma6.enable = true;
     xserver = {
       enable = true;
       xkb = {
@@ -218,7 +226,7 @@ in
         variant = "altgr-intl";
         options = "terminate:ctrl_alt_bksp";
       };
-      videoDrivers = [ "amd" ];
+      videodrivers = [ "amdgpu" ];
     };
     libinput.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
