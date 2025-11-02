@@ -29,7 +29,7 @@ in
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages =  with pkgs; [ rocmPackages.clr.icd ];
+      extraPackages =  with pkgs; [ mesa rocmPackages.clr.icd ];
     };
   };
 
@@ -169,12 +169,6 @@ in
   systemd.user.services.monado.environment = {
     STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
-  };
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      mesa
-    ];
   };
   # END Monado SteamVR alternative
 
