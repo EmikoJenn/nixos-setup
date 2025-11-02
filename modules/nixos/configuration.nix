@@ -35,8 +35,6 @@ in
 
   security.pam.services.sddm.kwallet.enable = true;
 
-  services.pulseaudio.enable = false;
-
   virtualisation = {
     containers.enable = true;
     docker = {
