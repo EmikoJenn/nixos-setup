@@ -7,7 +7,6 @@ in
   imports = [
     ./mountpoints.nix
     ./hardware-configuration.nix
-    ./programs/steam.nix { inherit proton-ge-rtsp-bin; }
   ];
 
   nix.settings = {
@@ -178,7 +177,7 @@ in
   # Steam
   programs.steam = {
     enable = true;
-    extraCompatPackages = [
+    extraCompatPackages = with pkgs; [
       pkgs.proton-ge-bin
       proton-ge-rtsp-bin
     ];
