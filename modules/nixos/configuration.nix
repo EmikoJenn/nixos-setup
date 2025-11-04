@@ -133,6 +133,7 @@ in
       vesktop
       anki-bin
       mpv
+      jdk21_headless
 
       # Python package manager
       uv
