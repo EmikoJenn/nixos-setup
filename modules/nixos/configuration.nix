@@ -135,16 +135,22 @@ in
       mpv
       jdk21_headless
 
-      # Python package manager
-      uv
+      alacritty
+
+      # Code Editors 
+      vscode
+      neovim
+      zed-editor
 
       # Theme
       spacx-gtk-theme
 
-      vscode
-      neovim
-      alacritty
-      zed-editor
+
+      ### CLI tools
+      # Python package manager
+      uv
+
+      python3Packages.faker-cli
 
       # Firewall libs for ALVR
       iptables
