@@ -150,8 +150,6 @@ in
       # Python package manager
       uv
 
-      faker-cli
-
       # Firewall libs for ALVR
       iptables
       nftables
