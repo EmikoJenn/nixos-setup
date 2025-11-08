@@ -150,7 +150,7 @@ in
       # Python package manager
       uv
 
-      python3Packages.faker-cli
+      faker-cli
 
       # Firewall libs for ALVR
       iptables
