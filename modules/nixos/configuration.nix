@@ -113,7 +113,6 @@ in
       pgadmin4
       element-desktop
       godot_4
-      dotnet-sdk_8
 
       # Steam Related apps
       steam-run
@@ -133,7 +132,6 @@ in
       vesktop
       anki-bin
       mpv
-      jdk21_headless
 
       alacritty
 
@@ -147,8 +145,13 @@ in
 
 
       ### CLI tools
-      # Python package manager
+      # Package Manager
       uv
+      # Runtimes SDKs
+      dotnet-sdk_8
+      jdk21_headless
+
+      terraform
 
       # Firewall libs for ALVR
       iptables
