@@ -186,7 +186,6 @@ in
 
 
 
-
   # Steam
   programs.steam = {
     enable = true;
@@ -209,9 +208,10 @@ in
   # ALVR
   programs.alvr = {
     enable = true;
-    package = unstable.alvr;
     openFirewall = true;
   };
+
+  # END ALVR:with
 
 
 
