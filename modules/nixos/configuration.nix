@@ -122,6 +122,7 @@ in
       # VR Related apps
       envision
       slimevr
+      alvr
 
       seahorse
       libsecret
@@ -206,8 +207,6 @@ in
 
 
   services = {
-    alvr.enable = true;
-
     gnome.gnome-keyring.enable = true;
     flatpak.enable = true;
     pipewire = {
