@@ -122,7 +122,6 @@ in
       # VR Related apps
       envision
       slimevr
-      alvr
 
       seahorse
       libsecret

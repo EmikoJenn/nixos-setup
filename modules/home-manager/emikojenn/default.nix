@@ -14,6 +14,8 @@
     };
   };
 
+  programs.home-manager.enable = true;
+
   imports = [
     ./programs
     ./packages
