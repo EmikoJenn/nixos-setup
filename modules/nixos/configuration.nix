@@ -205,6 +205,17 @@ in
 
 
 
+
+  # ALVR
+  programs.alvr = {
+    enable = true;
+    package = unstable.alvr;
+    openFirewall = true;
+  };
+
+
+
+
   services = {
     gnome.gnome-keyring.enable = true;
     flatpak.enable = true;
