@@ -110,7 +110,6 @@ in
       blender
       brave
       onlyoffice-desktopeditors
-      pgadmin4
       element-desktop
       godot_4
 
