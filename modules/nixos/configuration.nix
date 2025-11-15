@@ -206,6 +206,8 @@ in
 
 
   services = {
+    alvr.enable = true;
+
     gnome.gnome-keyring.enable = true;
     flatpak.enable = true;
     pipewire = {
@@ -337,11 +339,6 @@ in
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
-
-  programs.alvr = {
-    enable = true;
-    openFirewall = true;
-  };
 
   ####################################################	FIREWALL, VPN ###########################################################
   networking = {
