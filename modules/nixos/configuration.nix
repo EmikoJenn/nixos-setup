@@ -112,7 +112,6 @@ in
       onlyoffice-desktopeditors
       element-desktop
       godot_4
-      winboat
 
       # Steam Related apps
       steam-run
@@ -246,6 +245,13 @@ in
       enable = true;
       package = pkgs.mariadb;
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.kdePackages.xdg-desktop-portal-kde
+    ];
   };
 
   fonts.packages = with pkgs; [
