@@ -112,6 +112,7 @@ in
       onlyoffice-desktopeditors
       element-desktop
       godot_4
+      winboat
 
       # Steam Related apps
       steam-run
