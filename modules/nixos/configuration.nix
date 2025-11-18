@@ -56,8 +56,8 @@ in
       WLR_NO_HARDWARE_CURSORS = "1";
       # QT_QPA_PLATFORM         = "wayland";
       LD_LIBRARY_PATH         = "${pkgs.vulkan-loader}/lib";
-      DOTNET_ROOT             = "${pkgs.dotnet-sdk_8}/share/dotnet";
-      DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_8}/share/dotnet";
+      DOTNET_ROOT             = "${pkgs.dotnet-sdk_9}/share/dotnet";
+      DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_9}/share/dotnet";
     };
     systemPackages = with pkgs; [
       tmux
@@ -112,6 +112,7 @@ in
       onlyoffice-desktopeditors
       element-desktop
       godot_4
+      godot-mono
 
       # Steam Related apps
       steam-run
@@ -147,7 +148,7 @@ in
       # Package Manager
       uv
       # Runtimes SDKs
-      dotnet-sdk_8
+      dotnet-sdk_9
       jdk21_headless
 
       terraform
@@ -279,8 +280,8 @@ in
       enable = true;
       shellInit = ''
         set -x PATH $HOME/.dotnet/tools $PATH;
-        set -x DOTNET_ROOT ${pkgs.dotnet-sdk_8}/share/dotnet;
-        set -x DOTNET_ROOT_X64 ${pkgs.dotnet-sdk_8}/share/dotnet;
+        set -x DOTNET_ROOT ${pkgs.dotnet-sdk_9}/share/dotnet;
+        set -x DOTNET_ROOT_X64 ${pkgs.dotnet-sdk_9}/share/dotnet;
       '';
     };
     virt-manager.enable = true;
