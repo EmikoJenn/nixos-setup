@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, pkgs-unstable, ... }:
 let
   proton-ge-rtsp-bin = pkgs.callPackage ../home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix {};
 in
@@ -115,7 +115,7 @@ in
       unityhub
       godot_4
       godot-mono
-      gdtoolkit
+      (pkgs-unstable.gdtoolkit)
 
       # Steam Related apps
       steam-run
