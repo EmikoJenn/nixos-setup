@@ -106,13 +106,16 @@ in
       gdb
 
       postgresql
-      unityhub
       blender
       brave
       onlyoffice-desktopeditors
       element-desktop
+
+      # Game Engines & Utils
+      unityhub
       godot_4
       godot-mono
+      gdtoolkit
 
       # Steam Related apps
       steam-run
