@@ -20,10 +20,6 @@
     nixosConfigurations.emikojenn = systemConf {
       inherit system;
 
-      specialArgs = {
-        pkgs-unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
-      };
-
       modules = [
 	      ./modules/nixos/configuration.nix
 
