@@ -15,8 +15,17 @@ in
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "libxml2-2.13.8" ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      # allowUnfreePredicate = pkg:
+      # permittedInsecurePackages = [ "libxml2-2.13.8" ];
+      packageOverrides = pkgs: {
+        stable_23 = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-23.05.tar.gz") {};
+        unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {};
+      };
+    };
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot = {
@@ -125,7 +134,7 @@ in
 
       # VR Related apps
       envision
-      slimevr
+      unstable.slimevr
 
       seahorse
       libsecret
