@@ -7,7 +7,7 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable"
+      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     # nixvim = {
