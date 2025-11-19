@@ -59,7 +59,7 @@ in
       DOTNET_ROOT             = "${pkgs.dotnet-sdk_9}/share/dotnet";
       DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_9}/share/dotnet";
     };
-    systemPackages = with pkgs; [
+    systemPackages = (with pkgs; [
       tmux
       stow
 
@@ -115,7 +115,6 @@ in
       unityhub
       godot_4
       godot-mono
-      (pkgs-unstable.gdtoolkit)
 
       # Steam Related apps
       steam-run
@@ -159,7 +158,9 @@ in
       # Firewall libs for ALVR
       iptables
       nftables
-    ];
+    ]) ++ (with pkgs-unstable; [
+      gdtoolkit
+    ]);
   };
 
   time.timeZone = "America/Chihuahua";
