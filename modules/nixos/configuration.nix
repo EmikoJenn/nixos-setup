@@ -375,7 +375,7 @@ in
     firewall = {
       enable = true;
       allowedTCPPorts = [ 80 443 8080 25565 /* Palworld port: */ 8211 ];
-      allowedUDPPorts = [ 6969 51820 25565 9943 9944 9945 9946 9947 9948 9949 /* Palworld port: */ 8211 ];
+      allowedUDPPorts = [ 6969 6970 51820 25565 9943 9944 9945 9946 9947 9948 9949 /* Palworld port: */ 8211 ];
     };
     nat = {
       enable = true;
