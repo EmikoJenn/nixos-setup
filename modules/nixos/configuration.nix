@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, pkgs-unstable, ... }:
+{ inputs, config, lib, pkgs, ... }:
 let
   proton-ge-rtsp-bin = pkgs.callPackage ../home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix {};
 in
@@ -20,10 +20,6 @@ in
       allowUnfree = true;
       # allowUnfreePredicate = pkg:
       # permittedInsecurePackages = [ "libxml2-2.13.8" ];
-      packageOverrides = pkgs: {
-        stable_23 = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-23.05.tar.gz") {};
-        unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {};
-      };
     };
   };
 
@@ -134,7 +130,7 @@ in
 
       # VR Related apps
       envision
-      unstable.slimevr
+      slimevr
 
       seahorse
       libsecret
