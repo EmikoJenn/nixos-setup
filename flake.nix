@@ -15,6 +15,7 @@
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
+    unstablePkgs = import unstable { inherit system; };
     systemConf = nixpkgs.lib.nixosSystem;
     createHome = home-manager.nixosModules.home-manager;
   in
@@ -31,7 +32,7 @@
           home-manager.users.emikojenn = import ./modules/home-manager/emikojenn;
 				}
 
-        ./overlays
+        ./overlays { unstablePkgs }
       ];
     };
   };

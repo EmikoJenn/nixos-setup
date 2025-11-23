@@ -1,3 +1,4 @@
+{unstablePkgs}:
 {
   nixpkgs.overlays = [
     (final: prev: {
