@@ -23,16 +23,19 @@
     nixosConfigurations.emikojenn = systemConf {
       inherit system;
 
+      specialArgs = {
+        inherit unstablePkgs;
+      };
+
       modules = [
 	      ./modules/nixos/configuration.nix
+        ./overlays
 
 				home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.emikojenn = import ./modules/home-manager/emikojenn;
 				}
-
-        ./overlays { unstablePkgs; }
       ];
     };
   };
