@@ -119,8 +119,8 @@ in
       # Game Engines & Utils
       unityhub
       godot_4
-      godot-mono
-      gdtoolkit_4
+      unstable.godot-mono
+      unstable.gdtoolkit_4
 
       # Steam Related apps
       steam-run
@@ -130,7 +130,7 @@ in
 
       # VR Related apps
       envision
-      slimevr
+      unstable.slimevr
 
       seahorse
       libsecret
