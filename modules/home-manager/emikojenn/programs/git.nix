@@ -9,10 +9,14 @@
     init.defaultBranch = "main";
     pull.rebase = true;
 
+  };
+
+  extraConfig = {
     alias = {
       cfg = "config --list";
       uncommit = "reset --soft HEAD^";
       logall = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
     };
   };
+
 }
