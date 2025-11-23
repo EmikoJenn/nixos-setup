@@ -32,7 +32,7 @@
           home-manager.users.emikojenn = import ./modules/home-manager/emikojenn;
 				}
 
-        ./overlays { unstablePkgs }
+        ./overlays { unstablePkgs; }
       ];
     };
   };
