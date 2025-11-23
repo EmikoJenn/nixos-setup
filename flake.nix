@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +14,7 @@
   outputs = { self, nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
     systemConf = nixpkgs.lib.nixosSystem;
     createHome = home-manager.nixosModules.home-manager;
   in
@@ -28,6 +30,8 @@
           home-manager.useUserPackages = true;
           home-manager.users.emikojenn = import ./modules/home-manager/emikojenn;
 				}
+
+        ./overlays
       ];
     };
   };
