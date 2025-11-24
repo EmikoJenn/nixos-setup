@@ -65,9 +65,9 @@ in
       LD_LIBRARY_PATH         = "${pkgs.vulkan-loader}/lib";
       DOTNET_ROOT             = "${pkgs.dotnet-sdk_9}/share/dotnet";
       DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_9}/share/dotnet";
-      GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/28.0.3/aapt2";
-      ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
-      ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
+      GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${android_SDK}/libexec/android-sdk/build-tools/28.0.3/aapt2";
+      ANDROID_HOME = "${android_SDK}/libexec/android-sdk";
+      ANDROID_SDK_ROOT = "${android_SDK}/libexec/android-sdk";
     };
     systemPackages = with pkgs; [
       tmux
