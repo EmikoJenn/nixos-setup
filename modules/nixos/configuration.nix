@@ -1,6 +1,7 @@
 { inputs, config, lib, pkgs, ... }:
 let
   proton-ge-rtsp-bin = pkgs.callPackage ../home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix {};
+  android_SDK = pkgs.androidenv.androidPkgs.androidsdk;
 in
 {
   system.stateVersion = "23.11";
@@ -20,6 +21,7 @@ in
       allowUnfree = true;
       # allowUnfreePredicate = pkg:
       # permittedInsecurePackages = [ "libxml2-2.13.8" ];
+      android_sdk.accept_license = true;
     };
   };
 
@@ -63,6 +65,9 @@ in
       LD_LIBRARY_PATH         = "${pkgs.vulkan-loader}/lib";
       DOTNET_ROOT             = "${pkgs.dotnet-sdk_9}/share/dotnet";
       DOTNET_ROOT_X64         = "${pkgs.dotnet-sdk_9}/share/dotnet";
+      GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/28.0.3/aapt2";
+      ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
+      ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
     };
     systemPackages = with pkgs; [
       tmux
@@ -132,6 +137,11 @@ in
       envision
       unstable.slimevr
 
+      # Android
+      android-studio-full
+      android_SDK
+      androidenv.androidPkgs.platform-tools
+
       seahorse
       libsecret
 
@@ -153,11 +163,12 @@ in
 
 
       ### CLI tools
-      # Package Manager
+      # Package Manager & SDKs & Langs
       uv
-      # Runtimes SDKs
       dotnet-sdk_9
       jdk21_headless
+      kotlin
+      gradle
 
       terraform
 
