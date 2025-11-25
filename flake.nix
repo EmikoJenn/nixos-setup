@@ -15,7 +15,12 @@
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
-    unstablePkgs = import unstable { inherit system; };
+    unstablePkgs = import unstable { 
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
     systemConf = nixpkgs.lib.nixosSystem;
     createHome = home-manager.nixosModules.home-manager;
   in
