@@ -360,17 +360,16 @@ in
         firefox
         tmux
         pavucontrol
-       	gh
-       	yt-dlp
-       	openjdk17
-       	valgrind
-       	xivlauncher
-       	delta
-       	r2modman
-       	sidequest
-       	protonup-qt
-       	discord
-       	google-chrome
+        gh
+        unstable.yt-dlp
+        valgrind
+        xivlauncher
+        delta
+        r2modman
+        sidequest
+        protonup-qt
+        unstable.discord
+        google-chrome
      ];
     };
   };
