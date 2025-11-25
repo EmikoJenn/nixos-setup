@@ -115,11 +115,13 @@ in
       gcc
       gdb
 
-      postgresql
+      # Apps
+      unstable.figma
       blender
       brave
       onlyoffice-desktopeditors
       element-desktop
+
 
       # Game Engines & Utils
       unityhub
@@ -169,6 +171,7 @@ in
       jdk21_headless
       kotlin
       gradle
+      postgresql
 
       terraform
 
