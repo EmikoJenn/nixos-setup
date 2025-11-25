@@ -1,7 +1,7 @@
 { inputs, config, lib, pkgs, ... }:
 let
   proton-ge-rtsp-bin = pkgs.callPackage ../home-manager/emikojenn/overlays/proton-ge-rtsp-bin/default.nix {};
-  android_SDK = pkgs.androidenv.androidPkgs.androidsdk;
+  android_SDK = pkgs.unstable.androidenv.androidPkgs.androidsdk;
 in
 {
   system.stateVersion = "23.11";
@@ -138,7 +138,7 @@ in
       unstable.slimevr
 
       # Android
-      android-studio
+      unstable.android-studio
       android_SDK
       unstable.androidenv.androidPkgs.platform-tools
 
