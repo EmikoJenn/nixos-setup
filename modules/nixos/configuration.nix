@@ -24,10 +24,6 @@ in
       android_sdk.accept_license = true;
     };
   };
-  pkgs.unstable.config = {
-    allowUnfree = true;
-    android_sdk.accept_license = true;
-  };
 
   # Use the systemd-boot EFI boot loader.
   boot = {
