@@ -116,7 +116,7 @@ in
       gdb
 
       # Apps
-      unstable.figma
+      unstable.figma-linux
       blender
       brave
       onlyoffice-desktopeditors
