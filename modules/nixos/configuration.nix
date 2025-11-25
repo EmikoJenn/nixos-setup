@@ -138,7 +138,7 @@ in
       unstable.slimevr
 
       # Android
-      unstable.android-studio
+      android-studio
       android_SDK
       unstable.androidenv.androidPkgs.platform-tools
 
