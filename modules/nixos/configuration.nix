@@ -23,11 +23,10 @@ in
       # permittedInsecurePackages = [ "libxml2-2.13.8" ];
       android_sdk.accept_license = true;
     };
-
-    unstable.config = {
-      allowUnfree = true;
-      android_sdk.accept_license = true;
-    };
+  };
+  pkgs.unstable.config = {
+    allowUnfree = true;
+    android_sdk.accept_license = true;
   };
 
   # Use the systemd-boot EFI boot loader.
