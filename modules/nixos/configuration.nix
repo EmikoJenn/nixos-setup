@@ -138,9 +138,9 @@ in
       unstable.slimevr
 
       # Android
-      android-studio-full
+      unstable.android-studio
       android_SDK
-      androidenv.androidPkgs.platform-tools
+      unstable.androidenv.androidPkgs.platform-tools
 
       seahorse
       libsecret
